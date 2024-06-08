@@ -1,49 +1,46 @@
 @startuml
 class BinaryNumber {
-  + subtract(NumberType): NumberType
-  + divide(NumberType): NumberType
-  + multiply(NumberType): NumberType
-  + sum(NumberType): NumberType
+  + parse(int): NumberType
 }
 class Calculator {
-  + multiply(NumberType, NumberType): NumberType
-  + subtract(NumberType, NumberType): NumberType
-  + divide(NumberType, NumberType): NumberType
-  + sum(NumberType, NumberType): NumberType
+  - result: NumberType
+  - secondNumber: NumberType
+  - firstNumber: NumberType
+  + sum(): NumberType
+  + subtract(): NumberType
+  + canBeCalculated(int, int): boolean
+  + parseNumber(String, int): int
+  + multiply(): NumberType
+  + createArithmeticException(boolean): void
+  + divide(): NumberType
 }
 class HexaDecimalNumber {
-  + subtract(NumberType): NumberType
-  + multiply(NumberType): NumberType
-  + divide(NumberType): NumberType
-  + sum(NumberType): NumberType
+  + parse(int): NumberType
 }
 class Main {
   + main(String[]): void
 }
-abstract class NumberType {
+class NumberType {
+  - radix: int
+  + REAL_RADIX: int
+  + BINARY_RADIX: int
+  + HEXADECIMAL_RADIX: int
   - number: String
-  + multiply(NumberType): NumberType
+  + OCTAL_RADIX: int
   + getNumber(): String
-  + sum(NumberType): NumberType
+  + parse(int): NumberType
+  + getRadix(): int
   + toString(): String
-  + divide(NumberType): NumberType
-  + subtract(NumberType): NumberType
 }
 class OctalNumber {
-  + multiply(NumberType): NumberType
-  + sum(NumberType): NumberType
-  + subtract(NumberType): NumberType
-  + divide(NumberType): NumberType
+  + parse(int): NumberType
 }
 class RealNumber {
-  + divide(NumberType): NumberType
-  + sum(NumberType): NumberType
-  + subtract(NumberType): NumberType
-  + multiply(NumberType): NumberType
+  + parse(int): NumberType
 }
 
 BinaryNumber       --|>  NumberType
 HexaDecimalNumber  --|>  NumberType
-OctalNumber        --|> NumberType
+OctalNumber        --|>  NumberType
 RealNumber         --|>  NumberType
 @enduml
