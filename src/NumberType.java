@@ -20,10 +20,26 @@ public abstract class NumberType {
     return this.radix;
   }
 
+  public int parseNumber(String number, int radix) {
+    return Integer.parseInt(number, radix);
+  }
+
+  public boolean canBeCalculated(int firstRadix, int secondRadix) {
+    return firstRadix == secondRadix;
+  }
+
+  public void createArithmeticException(boolean operable) {
+    if (operable) {
+      throw new ArithmeticException("The numbers must be of the same instance.");
+    }
+  }
   @Override
   public String toString() {
     return this.number;
   }
 
-  public abstract NumberType parse(int number);
+  public abstract NumberType sum(NumberType number);
+  public abstract NumberType subtract(NumberType number);
+  public abstract NumberType multiply(NumberType number);
+  public abstract NumberType divide(NumberType number);
 }
