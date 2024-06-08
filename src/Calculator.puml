@@ -1,0 +1,49 @@
+@startuml
+class BinaryNumber {
+  + subtract(NumberType): NumberType
+  + divide(NumberType): NumberType
+  + multiply(NumberType): NumberType
+  + sum(NumberType): NumberType
+}
+class Calculator {
+  + multiply(NumberType, NumberType): NumberType
+  + subtract(NumberType, NumberType): NumberType
+  + divide(NumberType, NumberType): NumberType
+  + sum(NumberType, NumberType): NumberType
+}
+class HexaDecimalNumber {
+  + subtract(NumberType): NumberType
+  + multiply(NumberType): NumberType
+  + divide(NumberType): NumberType
+  + sum(NumberType): NumberType
+}
+class Main {
+  + main(String[]): void
+}
+abstract class NumberType {
+  - number: String
+  + multiply(NumberType): NumberType
+  + getNumber(): String
+  + sum(NumberType): NumberType
+  + toString(): String
+  + divide(NumberType): NumberType
+  + subtract(NumberType): NumberType
+}
+class OctalNumber {
+  + multiply(NumberType): NumberType
+  + sum(NumberType): NumberType
+  + subtract(NumberType): NumberType
+  + divide(NumberType): NumberType
+}
+class RealNumber {
+  + divide(NumberType): NumberType
+  + sum(NumberType): NumberType
+  + subtract(NumberType): NumberType
+  + multiply(NumberType): NumberType
+}
+
+BinaryNumber       --|>  NumberType
+HexaDecimalNumber  --|>  NumberType
+OctalNumber        --|> NumberType
+RealNumber         --|>  NumberType
+@enduml
