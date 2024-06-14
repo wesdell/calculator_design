@@ -1,58 +1,40 @@
 @startuml
 class BinaryNumber {
-  + sum(NumberType): NumberType
-  + multiply(NumberType): NumberType
-  + divide(NumberType): NumberType
-  + subtract(NumberType): NumberType
+  + parseToDouble(): double
 }
 class Calculator {
-  + multiply(NumberType, NumberType): NumberType
-  + divide(NumberType, NumberType): NumberType
   + sum(NumberType, NumberType): NumberType
+  + divide(NumberType, NumberType): NumberType
+  + toRealNumber(String): NumberType
+  + verifyNonZeroDivision(NumberType): boolean
   + subtract(NumberType, NumberType): NumberType
+  + multiply(NumberType, NumberType): NumberType
 }
 class HexaDecimalNumber {
-  + subtract(NumberType): NumberType
-  + sum(NumberType): NumberType
-  + divide(NumberType): NumberType
-  + multiply(NumberType): NumberType
+  + parseToDouble(): double
 }
-class Main {
-  + main(String[]): void
-}
-abstract class NumberType {
-  - radix: int
+class NumberType {
+  + HEXADECIMAL_RADIX: int
+  + OCTAL_RADIX: int
+  - number: String
   + REAL_RADIX: int
   + BINARY_RADIX: int
-  + HEXADECIMAL_RADIX: int
-  - number: String
-  + OCTAL_RADIX: int
-  + getNumber(): String
-  + getRadix(): int
-  + createArithmeticException(boolean): void
-  + sum(NumberType): NumberType
-  + canBeCalculated(int, int): boolean
   + toString(): String
-  + subtract(NumberType): NumberType
-  + parseNumber(String, int): int
-  + multiply(NumberType): NumberType
-  + divide(NumberType): NumberType
+  + parseToDouble(): double
 }
 class OctalNumber {
-  + subtract(NumberType): NumberType
-  + divide(NumberType): NumberType
-  + sum(NumberType): NumberType
-  + multiply(NumberType): NumberType
+  + parseToDouble(): double
 }
 class RealNumber {
-  + divide(NumberType): NumberType
-  + sum(NumberType): NumberType
-  + subtract(NumberType): NumberType
-  + multiply(NumberType): NumberType
+  + parseToDouble(): double
+}
+class RomanNumber {
+  + parseToDouble(): double
 }
 
 BinaryNumber       --|>  NumberType
 HexaDecimalNumber  --|>  NumberType
 OctalNumber        --|>  NumberType
 RealNumber         --|>  NumberType
+RomanNumber        --|>  NumberType
 @enduml
