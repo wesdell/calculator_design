@@ -1,10 +1,10 @@
-public class OctalNumber extends NumberType {
+public class OctalNumber extends Number {
   public OctalNumber(String number) {
     super(number);
   }
 
   @Override
-  public double parseToDouble() {
-    return Integer.parseInt(this.toString(), OCTAL_RADIX);
+  public double parseToDecimalNumber() {
+    return Integer.parseInt(this.toString(), 8);
   }
 }

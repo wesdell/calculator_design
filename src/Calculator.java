@@ -1,32 +1,28 @@
 public class Calculator {
-    public NumberType sum(NumberType firstNumber, NumberType secondNumber) {
-    double result = firstNumber.parseToDouble() + secondNumber.parseToDouble();
-    return this.toRealNumber(String.valueOf(result));
+    public String sum(Number firstNumber, Number secondNumber) {
+    double result = firstNumber.parseToDecimalNumber() + secondNumber.parseToDecimalNumber();
+    return String.valueOf(result);
   }
 
-  public NumberType subtract(NumberType firstNumber, NumberType secondNumber) {
-    double result = firstNumber.parseToDouble() - secondNumber.parseToDouble();
-    return this.toRealNumber(String.valueOf(result));
+  public String subtract(Number firstNumber, Number secondNumber) {
+    double result = firstNumber.parseToDecimalNumber() - secondNumber.parseToDecimalNumber();
+    return String.valueOf(result);
   }
 
-  public NumberType multiply(NumberType firstNumber, NumberType secondNumber) {
-    double result = firstNumber.parseToDouble() * secondNumber.parseToDouble();
-    return this.toRealNumber(String.valueOf(result));
+  public String multiply(Number firstNumber, Number secondNumber) {
+    double result = firstNumber.parseToDecimalNumber() * secondNumber.parseToDecimalNumber();
+    return String.valueOf(result);
   }
 
-  public NumberType divide(NumberType firstNumber, NumberType secondNumber) {
+  public String divide(Number firstNumber, Number secondNumber) {
     if (this.verifyNonZeroDivision(secondNumber)) {
       throw new ArithmeticException("Divide by zero");
     }
-    double result = firstNumber.parseToDouble() / secondNumber.parseToDouble();
-    return this.toRealNumber(String.valueOf(result));
+    double result = firstNumber.parseToDecimalNumber() / secondNumber.parseToDecimalNumber();
+    return String.valueOf(result);
   }
 
-  public NumberType toRealNumber(String number) {
-      return new RealNumber(number);
-  }
-
-  public boolean verifyNonZeroDivision(NumberType number) {
-      return number.parseToDouble() == 0;
+  public boolean verifyNonZeroDivision(Number number) {
+      return number.parseToDecimalNumber() == 0;
   }
 }

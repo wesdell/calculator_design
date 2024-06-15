@@ -1,10 +1,10 @@
-public class BinaryNumber extends NumberType {
+public class BinaryNumber extends Number {
   public BinaryNumber(String number) {
     super(number);
   }
 
   @Override
-  public double parseToDouble() {
-    return Integer.parseInt(this.toString(), BINARY_RADIX);
+  public double parseToDecimalNumber() {
+    return Integer.parseInt(this.toString(), 2);
   }
 }

@@ -1,10 +1,10 @@
-public class RomanNumber extends NumberType {
+public class RomanNumber extends Number {
   public RomanNumber(String number) {
     super(number);
   }
 
   @Override
-  public double parseToDouble() {
+  public double parseToDecimalNumber() {
     int[] romanValues = new int[256];
     romanValues['I'] = 1;
     romanValues['V'] = 5;

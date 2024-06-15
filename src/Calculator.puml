@@ -1,40 +1,43 @@
 @startuml
 class BinaryNumber {
-  + parseToDouble(): double
+  + parseToDecimalNumber(): double
 }
 class Calculator {
-  + sum(NumberType, NumberType): NumberType
-  + divide(NumberType, NumberType): NumberType
-  + toRealNumber(String): NumberType
-  + verifyNonZeroDivision(NumberType): boolean
-  + subtract(NumberType, NumberType): NumberType
-  + multiply(NumberType, NumberType): NumberType
+  + divide(Number, Number): String
+  + sum(Number, Number): String
+  + subtract(Number, Number): String
+  + multiply(Number, Number): String
+  + verifyNonZeroDivision(Number): boolean
+}
+class ComplexNumber {
+  - realPart: double
+  - imaginaryPart: double
+  + parseToDecimalNumber(): double
+}
+class DecimalNumber {
+  + parseToDecimalNumber(): double
 }
 class HexaDecimalNumber {
-  + parseToDouble(): double
+  + parseToDecimalNumber(): double
 }
-class NumberType {
-  + HEXADECIMAL_RADIX: int
-  + OCTAL_RADIX: int
+class Number {
   - number: String
-  + REAL_RADIX: int
-  + BINARY_RADIX: int
   + toString(): String
-  + parseToDouble(): double
+  + parseToDecimalNumber(): double
 }
 class OctalNumber {
-  + parseToDouble(): double
-}
-class RealNumber {
-  + parseToDouble(): double
+  + parseToDecimalNumber(): double
 }
 class RomanNumber {
-  + parseToDouble(): double
+  + parseToDecimalNumber(): double
 }
 
-BinaryNumber       --|>  NumberType
-HexaDecimalNumber  --|>  NumberType
-OctalNumber        --|>  NumberType
-RealNumber         --|>  NumberType
-RomanNumber        --|>  NumberType
+Calculator -u-> Number
+
+BinaryNumber       --|>  Number
+ComplexNumber      --|>  Number
+DecimalNumber      --|>  Number
+HexaDecimalNumber  --|>  Number
+OctalNumber        --|>  Number
+RomanNumber        --|>  Number
 @enduml
