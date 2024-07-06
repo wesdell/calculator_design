@@ -34,10 +34,10 @@ class RomanNumber {
 
 Calculator -u-> Number
 
-BinaryNumber       --|>  Number
-ComplexNumber      --|>  Number
-DecimalNumber      --|>  Number
-HexaDecimalNumber  --|>  Number
-OctalNumber        --|>  Number
-RomanNumber        --|>  Number
+BinaryNumber       -d-|>  Number
+DecimalNumber      -d-|>  Number
+HexaDecimalNumber  -d-|>  Number
+OctalNumber        -d-|>  Number
+RomanNumber        -r-|>  Number
+ComplexNumber      -l-|>  Number
 @enduml
